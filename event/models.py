@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Event(models.Model):
 	name = models.CharField(max_length=100)
@@ -19,5 +20,6 @@ class Team(models.Model):
 
 class Member(models.Model):
 	team = models.ForeignKey(Team)
+	user = models.ForeignKey(User)
 	time_add = models.DateTimeField('Member added')
 	
