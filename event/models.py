@@ -21,5 +21,9 @@ class Team(models.Model):
 class Member(models.Model):
 	team = models.ForeignKey(Team)
 	user = models.ForeignKey(User)
+	tel = models.CharField(max_length=30)
 	time_add = models.DateTimeField('Member added')
+
+	def __unicode__(self):
+		return "%s - %s" % (self.user.username, self.tel)
 	
